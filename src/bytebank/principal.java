@@ -4,12 +4,12 @@ public class principal{
 	public static void main(String[] args) {
 		
 		Conta primeiraConta = new Conta();
-		primeiraConta.saldo = 400;
+		primeiraConta.setSaldo(400);
 		
 		Conta segundaConta = new Conta();
-		segundaConta.saldo = primeiraConta.saldo;
+		segundaConta.setSaldo(primeiraConta.getSaldo());
 		
-		primeiraConta.saldo++;
+		primeiraConta.setSaldo(primeiraConta.getSaldo() + 1);
 		
 		/*
 		System.out.println(primeiraConta.saldo);
@@ -17,10 +17,10 @@ public class principal{
 		*/
 		
 		Conta conta1 = new Conta(500,50095,13222,"Marcos Silva");
-		System.out.println(conta1.titular+" => Saldo inicial de = "+conta1.saldo);
+		System.out.println(conta1.getTitular()+" => Saldo inicial de = "+conta1.getSaldo());
 		
 		Conta conta2 = new Conta(1000,50095,13222,"Fábio Souza");
-		System.out.println(conta2.titular+" => Saldo inicial de = "+conta2.saldo);
+		System.out.println(conta2.getTitular()+" => Saldo inicial de = "+conta2.getSaldo());
 		
 		/*
 		 * DEPÓSITO
@@ -36,9 +36,9 @@ public class principal{
 		Conta contaSaque = conta1;
 		
 		if(contaSaque.saca(valorSaque)) {
-			System.out.println(contaSaque.titular+" => SAQUE => "+valorSaque+" efetuado com Sucesso! Seu novo saldo é: "+contaSaque.saldo);
+			System.out.println(contaSaque.getTitular()+" => SAQUE => "+valorSaque+" efetuado com Sucesso! Seu novo saldo é: "+contaSaque.getSaldo());
 		} else {
-			System.out.println(contaSaque.titular+" => Você não possui saldo suficiente! Seu saldo é: "+contaSaque.saldo);
+			System.out.println(contaSaque.getTitular()+" => Você não possui saldo suficiente! Seu saldo é: "+contaSaque.getSaldo());
 		}
 		
 		/*
@@ -50,11 +50,11 @@ public class principal{
 		Conta contaDestino = conta2;
 		
 		if(contaOrigem.transfere(valorTransf, contaDestino)) {
-			System.out.println(contaOrigem.titular+" => TRANSFERE => "+valorTransf+" => "+contaDestino.titular+" => SUCESSO!");
+			System.out.println(contaOrigem.getTitular()+" => TRANSFERE => "+valorTransf+" => "+contaDestino.getTitular()+" => SUCESSO!");
 			contaOrigem.imprimeSaldo();
 			contaDestino.imprimeSaldo();
 		}else {
-			System.out.println(contaOrigem.titular+" => Não possui saldo suficiente!");
+			System.out.println(contaOrigem.getTitular()+" => Não possui saldo suficiente!");
 		}
 		
 	}
